@@ -8,6 +8,13 @@
     "appium-uiautomator2-driver": "^1.43.0"
   },
   "scripts": {
-    "test": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "report": "npx allure open allure-report"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "@wdio/allure-reporter": "^8.17.0",
+    "@wdio/browserstack-service": "^8.18.2",
+    "allure-commandline": "^2.24.1"
   }
 }
