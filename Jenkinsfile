@@ -7,14 +7,20 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/UiltondeOliveira/exercicio-mod-17-testes-mobile-ebac-shop.git'
             }
         }
-                stage ('Install Dependencies') {
+        stage('BrowserStack login') {
             steps {
-                sh 'npm install'
+                browserstack(credentialsId: '164f4f9c-dcef-4df4-8ff5-62c068bc4170') {
+            }
+         }
+      }
+        stage ('Install Dependencies') {
+            steps {
+                sh 'npm i node@16.13'
             }
         }
-                stage ('Run tests') {
+        stage ('Run tests') {
             steps {
-                sh 'NO_COLOR=1 npm test'
+                sh 'npm test'
             }
         }
     }
